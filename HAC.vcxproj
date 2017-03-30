@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{78890F25-BE76-4831-8BD3-EA612933975D}</ProjectGuid>
+    <RootNamespace>HAC</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Custom</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(OutDir)\..\..\lib\;$(QTDIR)\include\QtCore;$(QTDIR)\include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;HAC_DLL;HAC_DLL_EXPORT;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <OpenMPSupport>false</OpenMPSupport>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)..\bin\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir)..\lib;</AdditionalLibraryDirectories>
+      <ImportLibrary>$(OutDir)..\lib\$(ProjectName).lib</ImportLibrary>
+      <AdditionalDependencies>GISDataBase.lib</AdditionalDependencies>
+      <SubSystem>NotSet</SubSystem>
+      <HeapReserveSize>
+      </HeapReserveSize>
+      <HeapCommitSize>
+      </HeapCommitSize>
+      <StackReserveSize>
+      </StackReserveSize>
+      <StackCommitSize>
+      </StackCommitSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\bands.h" />
+    <ClInclude Include="headers\beam.h" />
+    <ClInclude Include="headers\bellhop.h" />
+    <ClInclude Include="headers\bellhop_hydrology.h" />
+    <ClInclude Include="headers\brdy.h" />
+    <ClInclude Include="headers\coord_2d.h" />
+    <ClInclude Include="headers\field_clutter.h" />
+    <ClInclude Include="headers\field_gain.h" />
+    <ClInclude Include="headers\field_reverb.h" />
+    <ClInclude Include="headers\ssp.h" />
+    <ClInclude Include="headers\ray.h" />
+    <ClInclude Include="headers\clutter.h" />
+    <ClInclude Include="headers\main.h" />
+    <ClInclude Include="headers\reverb.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\bands.cpp" />
+    <ClCompile Include="src\beam.cpp" />
+    <ClCompile Include="src\bellhop.cpp" />
+    <ClCompile Include="src\bellhop_hydrology.cpp" />
+    <ClCompile Include="src\brdy.cpp" />
+    <ClCompile Include="src\clutter.cpp" />
+    <ClCompile Include="src\coord_2d.cpp" />
+    <ClCompile Include="src\field_clutter.cpp" />
+    <ClCompile Include="src\field_gain.cpp" />
+    <ClCompile Include="src\field_reverb.cpp" />
+    <ClCompile Include="src\reverb.cpp" />
+    <ClCompile Include="src\ssp.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
